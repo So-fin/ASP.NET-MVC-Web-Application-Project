@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("https://www.w3schools.com/w3css/4/w3.css")
+    @Scripts.Render("~/Script/JavaScript.js")
+</head>
+<body style="padding-bottom: 100px;background-image:url(@Url.Content("https://wallpaperplay.com/walls/small-retina/7/c/9/26929.jpg"))">
+    <div class="w3-top">
+        <div class="w3-bar w3-grey w3-padding w3-card" style="letter-spacing:4px;">
+            <img id="img_logo" alt="Logo" style="width:40px" src="@Url.Content("https://seeklogo.com/images/G/ganpat-university-logo-E86FB4CE17-seeklogo.com.png")" />
+            <div class="w3-right w3-hide-small">
+                <a href="/Account/Login" class="w3-bar-item w3-button"> Login </a>
+                <a href="/Home/Create" class="w3-bar-item w3-button"> INSERT </a>
+                <a href="/Home/employeeList" class="w3-bar-item w3-button"> Employee List </a>
+                <a href="/Home/Contact" class="w3-bar-item w3-button"> Contact </a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="position: fixed;bottom: 0;left: 0;width: 100%;letter-spacing:4px;" class="w3-bar w3-grey w3-card">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

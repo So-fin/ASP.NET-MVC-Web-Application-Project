@@ -1,0 +1,66 @@
+﻿@model List<MVCWebApp.Models.employee>
+
+@{
+    ViewBag.Title = "EmployeeList";
+}
+
+<h2>EmployeeList</h2>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<table align="center" border="1" style="width:100%">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    @foreach (var employee in Model)
+    {
+
+        <tr class="w3-hover-red">
+            <td>
+                @employee.EmpId
+            </td>
+            <td>
+                @employee.Name  
+            </td>
+            <td>
+                @employee.Email
+            </td>
+            <td>
+                @employee.gender
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = employee.EmpId });
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = employee.EmpId });
+            </td>
+        </tr>
+    }
+</table>

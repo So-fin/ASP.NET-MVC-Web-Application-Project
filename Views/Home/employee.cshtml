@@ -1,0 +1,45 @@
+﻿@model MVCWebApp.Models.employee
+
+@{
+    ViewBag.Title = "employee";
+}
+
+<h2>employee</h2>
+@Html.Partial("_partialdemo");
+
+<table border="1">
+    <tr>
+        <td>
+            Employee Id:-
+        </td>
+        <td>
+            @Model.EmpId
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Employee Name:-
+        </td>
+        <td>
+            @Model.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Emplpoyee Gender:-
+        </td>
+        <td>
+            @Model.gender
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Employee Email:-
+        </td>
+        <td>
+            @Model.Email
+        </td>
+    </tr>
+</table>
+
+

@@ -1,0 +1,106 @@
+﻿@model MVCWebApp.Models.Feedback
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>Contact</h2>
+<style>
+    .Bg {
+        background: rgba(255,255,255,0.4);
+        border: none;
+        display: block;
+        outline: none;
+        width: 400px;
+        height: 30px;
+        top: 250px;
+        margin: 2px auto;
+        padding: 15px;
+        color: #333;
+        -webkit-box-shadow: 0 2px 5px 1px rgba(0,0,0,0.5);
+        box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        border-radius: 4px;
+        color: #ffffff;
+        background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+        background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+        border-bottom: solid 3px #c58668;
+    }
+
+        .button:active {
+            -ms-transform: translateY(4px);
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+            border-bottom: none;
+        }
+</style>
+
+
+
+<form id="frm" method="post">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Contact Details</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>
+                @Html.TextBoxFor(m => m.name, new { Class = "Bg" })
+            </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                @Html.TextBoxFor(m => m.gender, new { Class = "Bg" })
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                @Html.TextBoxFor(m => m.email, new { Class = "Bg" })
+            </td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td>
+                @Html.TextBoxFor(m => m.comment, new { Class = "Bg" })
+            </td>
+        </tr>
+    </table>
+    <input type="button" id="save" value="submit" class="button" />
+</form>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+
+        $(document).ready(function () {
+        $('#save').click(function () {
+               var empData = $("#frm").serialize();
+                $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: "/Home/Contact",
+                        data: empData,
+                    success: function (data) {
+                        alert("Succesfully connected");
+
+                     },
+                    error: function(ex) { alert("Something went wrong"); }
+
+                            });
+                        });
+                    });
+</script>
+
+
